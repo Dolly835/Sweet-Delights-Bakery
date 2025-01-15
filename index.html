@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Delights</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/fav icon.webp" type="image/x-icon">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+  }
+
+      /* Navbar */
+
+    .navbar {
+    background-color: #89085c;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Ensure it stays above other content */
+  }
+
+  .navbar + .carousel {
+    margin-top: 70px; /* Adjust to navbar height */
+  }
+
+  body {
+    padding-top: 70px; /* Prevent content from being hidden under the navbar */
+  }
+    
+
+    .navbar-brand img {
+      width: 50px;
+    }
+
+    .navbar-nav .nav-link {
+      color: #faf8f9 !important;
+      font-size: 1.1rem;
+    }
+
+    .login-button {
+      display: inline-flex;
+      align-items: center;
+      background-color: orange;
+      color: black;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    .login-button:hover {
+      color: white;
+    }
+
+    .icon {
+      margin-right: 5px;
+    }
+
+    .text {
+      text-decoration: underline;
+    }
+
+    /* Slideshow */
+    .carousel-inner img {
+      height: 600px;
+      object-fit: cover;
+    }
+
+    /* Section Titles */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 30px 0;
+      color: #333;
+    }
+
+    /* Flavor & Occasion Styles */
+    .photo-section img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-section img:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      color: #ff5722;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .price-text {
+      flex: 1;
+    }
+
+    .add-to-cart i {
+      font-size: 1.2rem;
+      color: #89085c;
+      cursor: pointer;
+    }
+
+    .add-to-cart i:hover {
+      color: #ff5722;
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgb(250, 246, 246);
+      padding: 20px 0;
+      text-align: center;
+      color: #333;
+    }
+
+    footer h3 {
+      font-size: 1.2rem;
+      color: #090400;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    /* Footer Link Styling */
+    .footer-link {
+      color: black;
+      text-decoration: none;
+      font-size: 1rem;
+      margin: 0 15px;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+      color: #555;
+    }
+
+    /* Social Icons */
+    .social-icons i {
+      font-size: 1.5rem;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+
+    .social-icons .bi-facebook {
+      color: #1877f2; /* Facebook Blue */
+    }
+
+    .social-icons .bi-twitter {
+      color: #1da1f2; /* Twitter Blue */
+    }
+
+    .social-icons .bi-instagram {
+      color: #e4405f; /* Instagram Pink */
+    }
+
+    .social-icons i:hover {
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="images/logo.webp" alt="Logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+            Categories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#flavors">Flavors</a></li>
+            <li><a class="dropdown-item" href="#occasions">Occasions</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#footer">Contact</a>
+        </li>
+      </ul>
+      <a href="#" class="me-3">
+        <i class="bi bi-cart3" style="font-size: 1.5rem; color: orange;"></i>
+      </a>
+
+      <a href="login.html" class="login-button">
+        <span class="icon">👤</span> <span class="text">Login</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <!-- Slideshow -->
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/slide 1.png" class="d-block w-100" alt="Slide 1">
+      </div>
+      <div class="carousel-item">
+        <img src="images/slide 2.png" class="d-block w-100" alt="Slide 2">
+      </div>
+      <div class="carousel-item">
+        <img src="images/slide4.png" class="d-block w-100" alt="Slide 3">
+      </div>
+      <div class="carousel-item">
+        <img src="images/slide5.png" class="d-block w-100" alt="Slide 4">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Choose Flavor Section -->
+  <div class="container my-5" id="flavors">
+    <h2 class="section-title">Choose Your Flavor</h2>
+    <div class="row photo-section">
+      <!-- Flavor Items... (same as before) -->
+      <div class="col-md-4 mb-4">
+        <img src="images/red velvet.jpeg" alt="Flavor 1">
+        <div class="caption"><b>Red Velvet</b></div>
+        <p>Red Velvet eggless cake</p>
+        <p class="price">
+          <span class="price-text">Price: ₹599</span>
+          <a href="#" class="add-to-cart">
+            <i class="bi bi-cart-plus"></i>
+          </a>
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Butterscotch Cake.jpeg" alt="Flavor 2">
+        <div class="caption"><b>Butterscotch Cake</b></div>
+        <p>Butterscotch Cake eggless cake</p>
+        <p class="price">
+          <span class="price-text">Price: ₹699</span>
+          <a href="#" class="add-to-cart">
+            <i class="bi bi-cart-plus"></i>
+          </a>
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/vanilla cake.jpeg" alt="Flavor 3">
+        <div class="caption"><b>vanilla cake</b></div>
+        <p>vanilla eggless cake</p>
+        <p class="price">
+          <span class="price-text">Price: ₹499</span>
+          <a href="#" class="add-to-cart">
+            <i class="bi bi-cart-plus"></i>
+          </a>
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Black Forest Cheesecake.jpeg" alt="Flavor 4">
+        <div class="caption"><b>Black Forest Cheesecake</b></div>
+        <p>Black Forest Cheese eggless cake</p>
+        <p class="price">
+          <span class="price-text">Price: ₹399</span>
+          <a href="#" class="add-to-cart">
+            <i class="bi bi-cart-plus"></i>
+          </a>
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Cheese cake strawberry.jpeg" alt="Flavor 5">
+        <div class="caption"><b>Cheese cake strawberry</b></div>
+        <p>Cheese strawberry eggless cake</p>
+        <p class="price">
+          <span class="price-text">Price: ₹599</span>
+          <a href="#" class="add-to-cart">
+            <i class="bi bi-cart-plus"></i>
+          </a>
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Rasmalai Cake Recipe.jpeg" alt="Flavor 6">
+        <div class="caption"><b>Rasmalai Cake</b></div>
+        <p>Rasmalai eggless cake</p>
+        <p class="price">
+          <span class="price-text">Price: ₹499</span>
+          <a href="#" class="add-to-cart">
+            <i class="bi bi-cart-plus"></i>
+          </a>
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Pineapple Coconut Cake.jpeg" alt="Flavor 7">
+        <div class="caption"><b>Pineapple Coconut</b></div>
+        <p>Pineapple Coconut eggless cake</p>
+        <p class="price">
+          <span class="price-text">Price: ₹399</span>
+          <a href="#" class="add-to-cart">
+            <i class="bi bi-cart-plus"></i>
+          </a>
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Chocolate Strawberry Cake.jpeg" alt="Flavor 8">
+        <div class="caption"><b>Chocolate Strawberry</b></div>
+        <p>Chocolate Strawberryeggless cake</p>
+        <p class="price">
+          <span class="price-text">Price: ₹599</span>
+          <a href="#" class="add-to-cart">
+            <i class="bi bi-cart-plus"></i>
+          </a>
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/The Best Red Velvet Oreo Cheesecake.jpeg" alt="Flavor 9">
+        <div class="caption"><b>Red Velvet Oreo Cheesecake</b></div>
+        <p> Red Velvet Oreo Cheese eggless cake</p>
+        <p class="price">
+          <span class="price-text">Price: ₹499</span>
+          <a href="#" class="add-to-cart">
+            <i class="bi bi-cart-plus"></i>
+          </a>
+        </p>
+    </div>
+  </div>
+  <!-- Occasion Section -->
+  <div class="container my-5" id="occasions">
+    <h2 class="section-title">Occasions</h2>
+    <div class="row photo-section">
+      <!-- Occasion Items... (same as before) -->
+      <div class="col-md-4 mb-4">
+        <img src="images/birthday cake.jpeg" alt="Occasion 1">
+        <div class="caption">Birthday</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/wedding cake.jpeg" alt="Occasion 2">
+        <div class="caption">Wedding</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/baby shower cake.jpeg" alt="Occasion 3">
+        <div class="caption">Baby Shower</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Engagement Party Cakes.jpeg" alt="Occasion 4">
+        <div class="caption">Engagement</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Unicorn Theme Birthday Cake.jpeg" alt="Occasion 5">
+        <div class="caption">Unicorn Theme Birthday Cake</div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <img src="images/Christmas Cake !.jpeg" alt="Occasion 6">
+        <div class="caption">Christmas Cake</div>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div>
+      <a href="about.html" class="footer-link">About</a>
+      <a href="service.html" class="footer-link">Service</a>
+      <a href="contact.html" class="footer-link">Contact</a>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+    </div>
+    <p>&copy; 2024 Sweet Delights. All rights reserved.</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
